@@ -2,8 +2,7 @@
   hosts: db 
   become: yes
   vars:
-    login_host: db
-  tasks:
+    login_host: 172.31.18.132
   - name: Installing MySQL
     ansible.builtin.dnf:
       name: mysql-server
