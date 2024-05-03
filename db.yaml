@@ -4,12 +4,12 @@
   vars:
     login_host: db
   tasks:
-  - name: Inastalling MySQL
+  - name: Installing MySQL
     ansible.builtin.dnf:
       name: mysql-server
       state: installed # or latest
 
-  - name: start ans enable the mysql-server
+  - name: start and enable the mysql-server
     ansible.builtin.service:
       name: mysqld
       state: started
