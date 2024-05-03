@@ -15,11 +15,17 @@
       state: started
       enabled: yes
 # check password is already setup or not
-#  - name: check DB connection
-#    community.mysql.mysql_info:
-#      login user: root
-#      login password: ExpenseApp@1
-#      login_host: "{{login_host}}"
-#      filter: version
-    
+  - name: check DB Connection
+    absible.builtin.info:
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: "{{login_host}}"
+      filter: version
+    ignore_errors: yes
+    register: mysql_connection_output
+  
+  - name: print output
+    ansible.builtin.debug:
+      msg: "output: {{mysql_connection_output}}"
+
       
