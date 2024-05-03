@@ -1,5 +1,5 @@
 - name: Configuring the DB
-  hosts: db
+  hosts: db # 172.31.18.132
   become: yes
   vars:
     login_host: db
