@@ -14,7 +14,7 @@
       name: mysqld
       state: started
       enabled: yes
-  - name: Install python mysql dependencies
+  - name: install python mysql dependencies
     ansible.builtin.pip:
       name:
       - pyMySQL
