@@ -15,5 +15,5 @@
       state: installed
 
   - name: create expense user
-    ansiblle.builtin.user:
+    ansible.builtin.user:
       name: expense    
