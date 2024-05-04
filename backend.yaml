@@ -33,3 +33,8 @@
       src: /tmp/backend.zip # bydefault checks in ansible-master server
       dest: /app
       remote_src: yes 
+
+  - name: install nodejs dependencie i.e, npm install
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
