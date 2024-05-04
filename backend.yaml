@@ -37,4 +37,9 @@
   - name: install nodejs dependencie i.e, npm install
     ansible.builtin.command: npm install
     args:
-      chdir: /app
+      chdir: /app #we dont know the root server location so we need to give location to install
+
+  - name: copy backend service
+    ansible.builtin.copy:
+      src: backend.service
+      dest: /etc/systemd/system/backend.service
