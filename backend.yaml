@@ -42,7 +42,7 @@
   - name: install nodejs dependencie i.e, npm install
     ansible.builtin.command: npm install
     args:
-      chdir: /app #we dont know the root server location so we need to give location to install
+      chdir: /app # we dont know the root server location so we need to give location to install
 
   - name: copy backend service
     ansible.builtin.copy:
@@ -59,15 +59,15 @@
   - name: Import data from MySQL
     community.mysql.mysql_db:
       login_user: root
-      login_password: "{{login_password}}"
-      login_host: "{{login_host}}"
+      login_password: "{{ login_password }}"
+      login_host: "{{ login_host }}"
       target: /app/schema/backend.sql
       state: import
       name: all
 
   - name: daemon reload
     ansible.builtin.systemd_service:
-      daemon_relaod: yes
+      daemon_relaod: true
 
   - name: start and enabled backend service
     ansible.builtin.service:
