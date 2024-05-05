@@ -13,8 +13,8 @@
       state: started
       enabled: yes
 
-  - name: delete the default content
+  - name: delete the html Directory
     ansible.builtin.file:
-      path: /usr/share/nginx/html
+      path: /usr/share/nginx/html # /usr/share/nginx/html/* is not working to delete the default content of html so html delete the directory and recreate the html directory
       state: absent
   
