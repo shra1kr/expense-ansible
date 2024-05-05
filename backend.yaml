@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars:
-    login_host: 172.31.31.52
+    login_host: db.shravan.cloud
     login_password: ExpenseApp@1
   tasks: 
   - name: Disabling default nodejs
