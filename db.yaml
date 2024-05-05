@@ -12,6 +12,14 @@
     ansible.builtin.dnf:
       name: mysql-server
       state: latest # or latest
+    
+  - name: install python mysql dependencies
+    ansible.builtin.pip:
+      name:
+      - pyMySQL
+      - cryptography # for use passwords
+      executable: pip3.9 # pip3.11, if python version is 3.11
+  
 
   - name: start and enable the mysql-server
     ansible.builtin.service:
@@ -19,13 +27,7 @@
       state: started
       enabled: yes
 
-  - name: install python mysql dependencies
-    ansible.builtin.pip:
-      name:
-      - pyMySQL
-      - cryptography # for use passwords
-      executable: pip3.9 # pip3.11, if python version is 3.11
-
+  
 # check password is already setup or not
   - name: check DB Connection
     community.mysql.mysql_info:
